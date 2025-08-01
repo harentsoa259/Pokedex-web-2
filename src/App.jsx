@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import PokemonList from './components/Pokemonlist';
 import SearchBar from './components/Searchbar';
 import Navbar from './components/NavBar';
+import { BrowserRouter } from 'react-router-dom';
 import PokemonDetail from './components/pages/PokemonDetail';
 
 function App() {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PokemonCard from './Pokemoncard';
 import Loader from './Loader';
 
-function PokemonList({ searchTerm }) {
+function PokemonList({ searchTerm, selectedType }) {
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -10,7 +10,7 @@ function PokemonList({ searchTerm }) {
     const fetchPokemonList = async () => {
       setLoading(true);
       try {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
         const data = await res.json();
         const detailedData = await Promise.all(
           data.results.map(async (pokemon) => {
@@ -32,7 +32,10 @@ function PokemonList({ searchTerm }) {
   const filteredList = pokemonList.filter((pokemon) => {
     const nameMatch = pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
     const idMatch = pokemon.id.toString() === searchTerm;
-    return nameMatch || idMatch;
+    const typeMatch = selectedType
+      ? pokemon.types.some((t) => t.type.name === selectedType)
+      : true;
+    return (nameMatch || idMatch) && typeMatch;
   });
 
   if (loading) return <Loader />;

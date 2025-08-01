@@ -1,4 +1,4 @@
-function Navbar({ isDarkMode, toggleDarkMode }) {
+function Navbar() {
   return (
     <nav className="bg-red-500 text-white py-4 shadow-md">
       <div>

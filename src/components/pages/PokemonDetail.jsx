@@ -91,9 +91,9 @@ function PokemonDetail() {
 
         <button
           onClick={() => navigate(-1)}
-          className="mt-10 w-full py-3 rounded-lg bg-white text-indigo-600 font-semibold hover:bg-indigo-100 transition"
+          className="mt-10 w-80 py-3 rounded-lg bg-white text-black font-semibold hover:bg-red-200 transition"
         >
-          ⬅️ Retour au Pokédex
+          Retour au Pokédex
         </button>
       </div>
     </div>

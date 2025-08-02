@@ -10,7 +10,7 @@ function PokemonList({ searchTerm, selectedType }) {
     const fetchPokemonList = async () => {
       setLoading(true);
       try {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=386');
         const data = await res.json();
         const detailedData = await Promise.all(
           data.results.map(async (pokemon) => {

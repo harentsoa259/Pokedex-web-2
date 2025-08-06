@@ -10,7 +10,7 @@ function PokemonList({ searchTerm, selectedType }) {
     const fetchPokemonList = async () => {
       setLoading(true);
       try {
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=386');
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=50');
         const data = await res.json();
         const detailedData = await Promise.all(
           data.results.map(async (pokemon) => {
@@ -41,7 +41,7 @@ function PokemonList({ searchTerm, selectedType }) {
   if (loading) return <Loader />;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
       {filteredList.map((pokemon) => (
         <PokemonCard key={pokemon.id} pokemon={pokemon} />
       ))}

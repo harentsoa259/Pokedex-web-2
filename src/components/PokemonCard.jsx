@@ -51,6 +51,7 @@ function PokemonCard({ pokemon, delay = 0 }) {
       >
         <div
           className={`
+            h-80
             relative overflow-hidden rounded-3xl shadow-xl p-6 text-white 
             transition-all duration-700 cursor-pointer
             hover:shadow-3xl hover:shadow-black/30
